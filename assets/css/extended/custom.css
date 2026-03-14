@@ -1,0 +1,436 @@
+/* Typography — Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* Headings */
+h1, h2 { font-weight: 700; }
+h3, h4, h5, h6 { font-weight: 600; }
+
+h1 { font-size: 2rem; letter-spacing: -0.02em; }
+h2 { font-size: 1.5rem; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; }
+
+/* Content width — comfortable reading measure */
+.post-content {
+  max-width: 720px;
+}
+
+/* Muted metadata */
+.post-meta {
+  color: var(--secondary);
+  font-size: 0.85rem;
+}
+
+/* Links — subtle, underline on hover */
+.post-content a {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.post-content a:hover {
+  border-bottom-color: var(--primary);
+}
+
+/* Generous vertical rhythm */
+.post-content p {
+  margin-bottom: 1.25rem;
+}
+
+.post-content h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.post-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Code blocks */
+code {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85em;
+}
+
+/* ToC — h2 level only, hide nested h3 entries */
+.toc .inner > ul > li > ul {
+  display: none;
+}
+
+/* Home profile — rsms-inspired spacing */
+.first-entry .entry-content {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   Responsive — mobile viewport
+   ========================================================= */
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1.05rem; }
+
+  .post-content {
+    max-width: 100%;
+  }
+}
+
+/* =========================================================
+   Custom Components — for blog post content
+   All components use PaperMod CSS variables for dark mode
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Score Badge — inline badge showing a score (e.g. "4/10")
+   Usage: <span class="score-badge score-low">4/10</span>
+          <span class="score-badge score-high">9/10</span>
+   --------------------------------------------------------- */
+
+.score-badge {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15em 0.5em;
+  border-radius: 4px;
+  line-height: 1.4;
+  vertical-align: middle;
+}
+
+/* Right-align score badges when inside headings */
+h3 .score-badge {
+  float: right;
+  margin-top: 0.25em;
+}
+
+
+.score-badge.score-low {
+  background: rgba(220, 53, 69, 0.12);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.25);
+}
+
+.score-badge.score-mid {
+  background: rgba(255, 165, 0, 0.12);
+  color: #cc8400;
+  border: 1px solid rgba(255, 165, 0, 0.25);
+}
+
+.score-badge.score-high {
+  background: rgba(40, 167, 69, 0.12);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.25);
+}
+
+:root[data-theme="dark"] .score-badge.score-low {
+  background: rgba(220, 53, 69, 0.18);
+  color: #f07080;
+  border-color: rgba(220, 53, 69, 0.35);
+}
+
+:root[data-theme="dark"] .score-badge.score-mid {
+  background: rgba(255, 165, 0, 0.18);
+  color: #f0b040;
+  border-color: rgba(255, 165, 0, 0.35);
+}
+
+:root[data-theme="dark"] .score-badge.score-high {
+  background: rgba(40, 167, 69, 0.18);
+  color: #5dd27a;
+  border-color: rgba(40, 167, 69, 0.35);
+}
+
+/* ---------------------------------------------------------
+   Comparison Grid — two-column before/after prompt comparison
+   Usage:
+   <div class="comparison-grid">
+     <div class="comparison-before">
+       <div class="comparison-label">Before</div>
+       <p>...</p>
+     </div>
+     <div class="comparison-after">
+       <div class="comparison-label">After</div>
+       <p>...</p>
+     </div>
+   </div>
+   --------------------------------------------------------- */
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.comparison-before,
+.comparison-after {
+  padding: 1rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.comparison-before {
+  background: rgba(220, 53, 69, 0.06);
+  border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+.comparison-after {
+  background: rgba(40, 167, 69, 0.06);
+  border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+:root[data-theme="dark"] .comparison-before {
+  background: rgba(220, 53, 69, 0.1);
+  border-color: rgba(220, 53, 69, 0.25);
+}
+
+:root[data-theme="dark"] .comparison-after {
+  background: rgba(40, 167, 69, 0.1);
+  border-color: rgba(40, 167, 69, 0.25);
+}
+
+.comparison-label {
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.comparison-before .comparison-label {
+  color: #dc3545;
+}
+
+.comparison-after .comparison-label {
+  color: #28a745;
+}
+
+:root[data-theme="dark"] .comparison-before .comparison-label {
+  color: #f07080;
+}
+
+:root[data-theme="dark"] .comparison-after .comparison-label {
+  color: #5dd27a;
+}
+
+@media screen and (max-width: 480px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------
+   Avoid/Better Table — styled table with red/green tinting
+   Usage: <table class="avoid-better-table">
+            <thead><tr><th>Avoid</th><th>Better</th></tr></thead>
+            <tbody><tr><td>...</td><td>...</td></tr></tbody>
+          </table>
+   --------------------------------------------------------- */
+
+.avoid-better-table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.avoid-better-table th,
+.avoid-better-table td {
+  width: 50%;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid var(--border);
+}
+
+.avoid-better-table thead th {
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.avoid-better-table thead th:first-child {
+  background: rgba(220, 53, 69, 0.08);
+  color: #dc3545;
+}
+
+.avoid-better-table thead th:last-child {
+  background: rgba(40, 167, 69, 0.08);
+  color: #28a745;
+}
+
+.avoid-better-table tbody td:first-child {
+  background: rgba(220, 53, 69, 0.04);
+}
+
+.avoid-better-table tbody td:last-child {
+  background: rgba(40, 167, 69, 0.04);
+}
+
+:root[data-theme="dark"] .avoid-better-table thead th:first-child {
+  background: rgba(220, 53, 69, 0.12);
+  color: #f07080;
+}
+
+:root[data-theme="dark"] .avoid-better-table thead th:last-child {
+  background: rgba(40, 167, 69, 0.12);
+  color: #5dd27a;
+}
+
+:root[data-theme="dark"] .avoid-better-table tbody td:first-child {
+  background: rgba(220, 53, 69, 0.06);
+}
+
+:root[data-theme="dark"] .avoid-better-table tbody td:last-child {
+  background: rgba(40, 167, 69, 0.06);
+}
+
+@media screen and (max-width: 480px) {
+  .avoid-better-table th,
+  .avoid-better-table td {
+    padding: 0.5rem 0.65rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ---------------------------------------------------------
+   Guideline Card — numbered card for each guideline
+   Usage:
+   <div class="guideline-card">
+     <div class="guideline-number">1</div>
+     <div class="guideline-body">
+       <h3 class="guideline-title">Title</h3>
+       <p>Description...</p>
+     </div>
+   </div>
+   --------------------------------------------------------- */
+
+.guideline-card {
+  margin: 1.25rem 0;
+}
+
+
+/* ---------------------------------------------------------
+   Case Study — card with context, prompt, and outcome
+   Usage:
+   <div class="case-study">
+     <div class="case-study-header">Case Study Title</div>
+     <div class="case-study-section">
+       <div class="case-study-label">Context</div>
+       <p>...</p>
+     </div>
+     <div class="case-study-section">
+       <div class="case-study-label">Prompt</div>
+       <p>...</p>
+     </div>
+     <div class="case-study-section">
+       <div class="case-study-label">Outcome</div>
+       <p>...</p>
+     </div>
+   </div>
+   --------------------------------------------------------- */
+
+.case-study {
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--entry);
+  overflow: hidden;
+}
+
+.case-study-header {
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--primary);
+  border-bottom: 1px solid var(--border);
+  background: var(--code-bg);
+}
+
+.case-study-section {
+  padding: 0.75rem 1.25rem;
+}
+
+.case-study-section + .case-study-section {
+  border-top: 1px solid var(--border);
+}
+
+.case-study-label {
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--secondary);
+  margin-bottom: 0.35rem;
+}
+
+.case-study-section p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--content);
+}
+
+.case-study-section code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-size: 0.82em;
+}
+
+@media screen and (max-width: 480px) {
+  .case-study-header,
+  .case-study-section {
+    padding: 0.65rem 1rem;
+  }
+}
+
+/* ---------------------------------------------------------
+   Disclaimer Block — info/callout block
+   Usage:
+   <div class="disclaimer-block">
+     <p>These guidelines are not universal rules...</p>
+   </div>
+   --------------------------------------------------------- */
+
+.disclaimer-block {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--secondary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--code-bg);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--secondary);
+}
+
+.disclaimer-block p {
+  margin: 0;
+}
+
+.disclaimer-block p + p {
+  margin-top: 0.75rem;
+}
+
+.disclaimer-block strong {
+  color: var(--primary);
+  font-weight: 600;
+}

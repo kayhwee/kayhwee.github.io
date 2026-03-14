@@ -1,0 +1,60 @@
+baseURL: https://kayhwee.github.io/
+languageCode: en-us
+title: Kay Hwee Lim
+theme: PaperMod
+
+paginate: 10
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+params:
+  env: production
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: false
+
+  homeInfoParams:
+    Title: "Hello, World."
+    Content: >
+      I share opinions on the things that drive me — shipping fast, AI-assisted tooling, and what actually works. Software Engineer at Zendesk.
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/kayhwee"
+    - name: linkedin
+      url: "https://sg.linkedin.com/in/kayhwee-lim"
+
+  assets:
+    disableFingerprinting: false
+
+  cover:
+    linkFullImages: true
+
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 10
+    - identifier: resume
+      name: Resume
+      url: /resume/
+      weight: 20
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 30
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
